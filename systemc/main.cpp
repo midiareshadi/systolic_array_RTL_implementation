@@ -63,7 +63,7 @@ int sc_main(int argc , char *argv[])
 		sc_trace(tf, t_rst, "rst");
 		sc_trace(tf, t_result_ld, "result_ld");
 
-	// Systolic array parameters
+	// Systolic array output vcd parameters
 		for (int i =0; i< dim; i++) {
 
 			string RD_gtk = "RD[" + std::to_string(i) + "]";
@@ -79,9 +79,6 @@ int sc_main(int argc , char *argv[])
 			sc_trace(tf, t_FDo[i], FDo_gtk.c_str());
 		}
 		
-		// Other systolic array parameters
-		sc_trace(tf, SA_inst.V[8], "SA_inst.V[8]");
-
 		
 		// PE parameters
 		for (int i =0; i< dim*dim; i++) {
