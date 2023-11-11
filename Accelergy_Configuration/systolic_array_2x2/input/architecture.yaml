@@ -1,0 +1,91 @@
+architecture:
+# ============================================================
+# Architecture Description
+# ============================================================
+  version: 0.3
+  subtree:
+    - name: systolic_array_2x2
+      attributes:    
+        voltage: 1V
+        latency: 5ns
+        technology: 45nm
+      local:                     
+        - name: GLB
+          class: smartbuffer_SRAM #old:SRAM 
+          attributes:            
+            memory_depth: 4096 # 4KB 
+            memory_width: 8
+            n_banks: 1
+      subtree:                   
+        - name: PE[0..3]
+          attributes:
+            datawidth: 8
+          local:
+            - name: MAC       
+              class: intmac # old:intmac
+              attributes:
+                # technology: 45nm
+                # num_pipeline_stages: 1
+                datawidth: 8
+            - name: LR    
+              class: smartbuffer_RF #old:regfile
+              attributes:
+                width: 8
+                depth: 1
+                n_ports: 2
+
+
+#  version: 0.3
+#  subtree:
+#  - name: Board
+#  
+#    local:
+#    - name: DRAM_MEM
+#      class: DRAM
+#      attributes:
+#        width: 32
+#        block-size: 1
+#        word-bits: 16 
+#         
+#    subtree:
+#      - name: systolic_array_2x2
+#        attributes:    
+#          voltage: 1V
+#          latency: 5ns
+#        local:                     
+#          - name: GLB
+#            class: SRAM
+#            attributes:            
+#              memory_depth: 12
+#              memory_width: 16
+#              n_banks: 1
+#        subtree:                   
+#          - name: PE[0..3]
+#            attributes:
+#              datawidth: 16
+#            local:
+#              - name: MAC       
+#                class: intmac
+#                attributes:
+#                  num_pipeline_stages: 2
+#              - name: LR    
+#                class: regfile
+#                attributes:
+#                  width: 16
+#                  depth: 1
+#                  n_ports: 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

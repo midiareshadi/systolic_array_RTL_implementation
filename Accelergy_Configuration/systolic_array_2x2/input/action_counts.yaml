@@ -1,0 +1,90 @@
+action_counts:
+  # ================================================
+  # Action Counts
+  # ================================================
+  version: 0.2
+  local:
+    - name: systolic_array_2x2.GLB
+      action_counts:
+        - name: read
+          arguments:
+            data_delta: 1
+            address_delta: 1
+          counts: 10 # read
+        - name: write
+          arguments:
+            data_delta: 1
+            address_delta: 1
+          counts: 6 # write
+#-------------------------------------------          
+    - name: systolic_array_2x2.PE[0].LR
+      action_counts:
+        - name: read
+          arguments:
+            address_delta: 1
+            data_delta: 0
+          counts: 17 # read
+        - name: write
+          arguments:
+            address_delta: 1
+            data_delta: 1
+          counts: 3 # write
+          
+    - name: systolic_array_2x2.PE[0].MAC
+      action_counts:
+        - name: mac_reused
+          counts: 17
+#-------------------------------------------          
+    - name: systolic_array_2x2.PE[1].LR
+      action_counts:
+        - name: read
+          arguments:
+            address_delta: 1
+            data_delta: 0
+          counts: 17 # read
+        - name: write
+          arguments:
+            address_delta: 1
+            data_delta: 1
+          counts: 3 # write
+          
+    - name: systolic_array_2x2.PE[1].MAC
+      action_counts:
+        - name: mac_reused
+          counts: 17
+#-------------------------------------------          
+    - name: systolic_array_2x2.PE[2].LR
+      action_counts:
+        - name: read
+          arguments:
+            address_delta: 1
+            data_delta: 0
+          counts: 17 # read
+        - name: write
+          arguments:
+            address_delta: 1
+            data_delta: 1
+          counts: 3 # write
+          
+    - name: systolic_array_2x2.PE[2].MAC
+      action_counts:
+        - name: mac_reused
+          counts: 17
+#-------------------------------------------          
+    - name: systolic_array_2x2.PE[3].LR
+      action_counts:
+        - name: read
+          arguments:
+            address_delta: 1
+            data_delta: 0
+          counts: 17 # read
+        - name: write
+          arguments:
+            address_delta: 1
+            data_delta: 1
+          counts: 3 # write
+          
+    - name: systolic_array_2x2.PE[3].MAC
+      action_counts:
+        - name: mac_reused
+          counts: 17
