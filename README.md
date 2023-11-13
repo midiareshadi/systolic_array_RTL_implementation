@@ -1,1 +1,1 @@
-systolic_array_RTL_implementation
+RTL implementation of baseline systolic array
