@@ -1,7 +1,7 @@
 #### RTL implementation of baseline systolic array
-This repository provides an RTL implementation of a fundamental systolic array, a core computation unit for matrix multiplication. Systolic arrays, characterized by their ability to perform multiplication and addition operations at maximum concurrency, achieve low computation time and high efficiency.
+This repository provides an RTL implementation of a fundamental systolic array, a core computation unit for matrix multiplication. Systolic arrays are known for their ability to perform multiplication and addition operations at maximum concurrency, achieving low computation time and high efficiency.
 
-The systolic array is described in both Verilog and SystemC. The SystemC code is parametric, allowing the dimension of PE arrays to be specified as constants. In contrast, the Verilog code is written for a fixed base 2x2 dimension. While the IVerilog compiler supports parametric descriptions, this code fails to compile correctly when using the Isim compiler. However, the Verilog code is synthesizable and has been verified using Vivado.
+I described a baseline systolic array in both Verilog and SystemC. The SystemC code is parametric, allowing the dimension of PE arrays to be specified as constants. In contrast, the Verilog code is written for a fixed base 2x2 dimension. While the iVerilog (Icarus) compiler supports parametric descriptions, this code fails to compile correctly when using the ISim (ISE) compiler. However, the Verilog code is synthesizable and has been verified using Vivado.
 The directory structure is:
 ```
 .
