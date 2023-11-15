@@ -12,4 +12,4 @@ The directory structure is:
 |   `-- vcd_file
 `-- verilog
     `-- systolic_array_2x2
-    ```
+```
