@@ -1,0 +1,10 @@
+.
+|-- Accelergy_Configuration
+|   `-- systolic_array_2x2
+|-- systemc
+|   |-- input_matrices
+|   `-- vcd_file
+`-- verilog
+    `-- systolic_array_2x2
+
+7 directories
