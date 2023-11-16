@@ -25,3 +25,16 @@ The Accelergy_Configuration folder includes the architecture definition and acti
 cd Accelergy_Configuration/systolic_array_2x2
 accelergy -o output/ input/*.yaml input/components/*.yaml -v 1
 ```
+
+### PE state diagram
+``` mermaid
+graph LR
+A((reset)) --> B((calc_0))
+B((calc_0)) --result_ld = 1--> C((ld_result))
+B((calc_0)) --result_ld = 0--> D((calc_1))
+D((calc_1)) --result_ld = 0--> B((calc_0))
+D((calc_1)) --result_ld = 1--> C((ld_result))
+C((ld_result)) --> E((drain_0))
+E((drain_0)) --> F((drain_1))
+F((drain_1)) --> E((drain_0))
+```
