@@ -19,7 +19,7 @@ The directory tree is shown as:
         |-- input_matrices
         `-- vcd_file
 ```
-### Use of the Accelergy
+### Using Accelergy
 The Accelergy_Configuration folder includes the architecture definition and activity file (action count) of a 2x2 systolic array which are defined in YAML file format. We can use [Accelergy](https://accelergy.mit.edu/) to estimate the energy consumption. To run the Accelergy configuration, first, the Accelergy needs to be installed using `pip install .`. To run Accelergy configuration:
 ```
 cd Accelergy_Configuration/systolic_array_2x2
