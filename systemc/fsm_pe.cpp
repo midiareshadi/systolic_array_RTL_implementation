@@ -78,6 +78,7 @@ void fsm_pe::prc_state_machine(){
     
 } //end of function
 
+// FSM output computation
 void fsm_pe::prc_output_comb(){
 	
 	if(rst) 
@@ -86,7 +87,7 @@ void fsm_pe::prc_output_comb(){
 		p_state= n_state;
 } //end of function
 
-// mac_calc function
+// mac_calc local function
 sc_uint<DATA_WIDTH> fsm_pe::mac_calc(sc_uint<DATA_WIDTH> f_LR, sc_uint<DATA_WIDTH> f_FDi, sc_uint<DATA_WIDTH> f_RD, bool f_bd_PE)
     {
     	sc_uint<DATA_WIDTH> f_mult, f_mac;

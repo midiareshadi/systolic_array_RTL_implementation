@@ -19,7 +19,7 @@ SC_MODULE(driver) {
 	sc_out<sc_uint<(2*DATA_IN_WIDTH_D)>> d_RD[d_dim];
 	sc_out<bool> d_rst, d_result_ld;
         
-	// Parameters
+	// Temporary parameters
 	sc_uint<DATA_IN_WIDTH_D> p_FDi[d_dim];
 	sc_uint<(2*DATA_IN_WIDTH_D)> p_RD[d_dim];
 	

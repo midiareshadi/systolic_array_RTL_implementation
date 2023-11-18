@@ -4,7 +4,6 @@
 //Constants
 const int DATA_WIDTH=16;
     
-
 SC_MODULE(fsm_pe) {
     
     //Ports
@@ -18,20 +17,20 @@ SC_MODULE(fsm_pe) {
     sc_out<sc_uint<(2*DATA_WIDTH)>> result;
 
     
-    //States
+    //FSM state declaration
     enum states {reset=0,
-		calc_0=1,
-		calc_1=2,
-		ld_result=3,
-		drain_0=4,
-		drain_1=5};
+                  calc_0=1,
+                  calc_1=2,
+                  ld_result=3,
+                  drain_0=4,
+                  drain_1=5
+                };
     
     //Signals
     sc_signal<states> p_state,n_state;
     sc_signal<sc_uint<(2*DATA_WIDTH)>> multi;
     
-    //Parameters
-    
+    //FSM states as parameters
     sc_uint<3> state_status;
 
     //Functions
@@ -42,7 +41,7 @@ SC_MODULE(fsm_pe) {
     SC_CTOR (fsm_pe) {
         SC_METHOD (prc_state_machine);
         sensitive << p_state << result_ld;
-        
+          //mac_calc local function to perform multiply and accumulate        
 /*        SC_METHOD (mac_calc);*/
 /*        sensitive << f_LR << f_FDi << f_RD << f_bd_PE;*/
         
