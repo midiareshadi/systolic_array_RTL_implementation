@@ -33,6 +33,7 @@ accelergy -o output/ input/*.yaml input/components/*.yaml -v 1
 ```
 
 ### PE state diagram
+The processing element (PE) is the heart and soul of a systolic array. It is responsible for performing the computations that make the systolic array so efficient. Like any digital logic circuit, the PE's control path is based on a finite state machine (FSM). Both the SystemC and Verilog descriptions of the systolic array use an FSM with six states.
 ``` mermaid
 graph LR
 A((reset)) --> B((calc_0))
