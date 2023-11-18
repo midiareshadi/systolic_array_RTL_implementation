@@ -22,6 +22,9 @@ The directory tree is shown as:
 ### SystemC Description
 In the SystemC description, input matrices are stored in text files where `A_TB.txt` and `B_TB.txt` are zero-padded versions of the original A and B matrices, and the original format of A and B matrices is located in the `input_matrices` folder. The testbench generates a VCD file containing the simulation output, which is stored in the `vcd_file` folder. This VCD file can be visualized using the [GTKWave](https://gtkwave.sourceforge.net/) application or online tools like [surfer-project](https://app.surfer-project.org/).
 
+### Verilog Description
+The Verilog description closely mirrors the SystemC description, but with the limitation that Verilog code is not as parametric as SystemC. The basic design for creating higher dimensional systolic arrays is demonstrated with a 2x2 systolic array.
+
 ### Using Accelergy
 The Accelergy_Configuration folder includes the architecture definition and activity file (action count) of a 2x2 systolic array which are defined in YAML file format. We can use [Accelergy](https://accelergy.mit.edu/) to estimate the energy consumption. To run the Accelergy configuration, first, the Accelergy needs to be installed using `pip install .`. To run Accelergy configuration:
 ```
