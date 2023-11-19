@@ -23,7 +23,7 @@ int sc_main(int argc , char *argv[])
 	sc_signal<sc_uint<(2*DATA_IN_WIDTH)>> t_RD[dim], t_GD[dim];
 
 	
-	// Clock (”label”,period,duty_ratio,offset,start_value);	
+	// Clock format: Clock (”label”,period,duty_ratio,offset,start_value);	
 	sc_clock t_clk ("clock", 20 , SC_NS, 0.5 , 10, SC_NS , true);
 	
     
