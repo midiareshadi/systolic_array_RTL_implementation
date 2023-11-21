@@ -62,8 +62,6 @@ module systolic_array_2x2_tb;
 		tb_load=1;
 		#(dim*20); 
 		tb_load=0;
-
-
 	end
     
 
