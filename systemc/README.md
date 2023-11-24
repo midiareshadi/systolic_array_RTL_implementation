@@ -22,3 +22,6 @@ The created exe file will be named `exeFile` and can be run by:
 ```
 ./exeFile
 ```
+## Running code in EDA playground
+The source code is also available on an EDA playground website, which provides a platform to compile and execute the code directly in your web browser.
+Project link on EDA Playground: https://edaplayground.com/x/NzJf
