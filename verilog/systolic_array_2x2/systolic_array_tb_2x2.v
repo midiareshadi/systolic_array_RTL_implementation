@@ -31,6 +31,7 @@ module systolic_array_2x2_tb;
         .sa_FDo_0(tb_FDo_0),
         .sa_FDo_1(tb_FDo_1)
     );
+    defparam sa_inst_2x2.DATA_WIDTH=DATA_WIDTH;
     
     // bd_PE initialization
     initial begin
@@ -62,6 +63,8 @@ module systolic_array_2x2_tb;
 		tb_load=1;
 		#(dim*20); 
 		tb_load=0;
+
+
 	end
     
 

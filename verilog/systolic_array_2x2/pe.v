@@ -122,6 +122,7 @@ module pe(RD,FDi,clk,rst,load,bd_PE,GD,FDo);
 						n_state = feed_get;
 					end
 			end
+
         
         default: n_state= PE_rst;
          
