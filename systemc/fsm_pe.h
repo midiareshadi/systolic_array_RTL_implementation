@@ -3,7 +3,7 @@
 
 //Constants
 const int DATA_WIDTH=16;
-    
+
 SC_MODULE(fsm_pe) {
     
     //Ports

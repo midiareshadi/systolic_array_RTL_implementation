@@ -100,9 +100,11 @@ SC_MODULE(systolic_array) {
 		sensitive   << sa_RD[i];
 		sensitive   << sa_FDi[i];
 		}
-		
+		// sensitive   << sa_RD[0] << sa_RD[1] //<< sa_RD[2] << sa_RD[3] 
+					// << sa_FDi[0] << sa_FDi[1] //<< sa_FDi[2] << sa_FDi[3]
 		for (int i=0; i<dim ; i++) {
-		sensitive	<< V[(dim*(dim-1) + i +((dim*dim)-1))];	
+		sensitive	<< V[(dim*(dim-1) + i +((dim*dim)-1))];
+					// << V[5] << V[6]; // << V[29] << V[30];
 		}
 	}
 
