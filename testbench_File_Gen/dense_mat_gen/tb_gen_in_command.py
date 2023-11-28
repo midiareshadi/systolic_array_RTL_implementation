@@ -56,9 +56,11 @@ C= matmul (A_mat , B_mat)
 A_mat = np.transpose(A_mat)
 A_mat = add_zeros(A_mat)
 
+"""
 # Weight stationary input matrices
 # B_mat= B_reverse(B_mat) # for weight stationaty
 # B_flip= np.flip(B_mat, axis=0)
+"""
 
 B_final=add_zeros(B_mat)
 
