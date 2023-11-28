@@ -8,7 +8,6 @@ def matrix_generation(rows,cols):
     np.savetxt('A.txt', A, fmt='%d')
     np.savetxt('B.txt', B, fmt='%d')
 
-
 def add_zeros(A_mat):
     n = A_mat.shape[0]
     m = A_mat.shape[1]
@@ -18,7 +17,6 @@ def add_zeros(A_mat):
             new_matrix[i + j][j] = A_mat[i][j]
     return new_matrix
 
-
 def add_zeros_2(in_matrix):
     n = in_matrix.shape[0]
     m = in_matrix.shape[1]
@@ -27,7 +25,6 @@ def add_zeros_2(in_matrix):
         for j in range(m):
             new_matrix[i][i+j] = in_matrix[i][j]
     return new_matrix
-
 
 def B_reverse(B_mat):
    B_rev= reversed_matrix = np.flip(B_mat, axis=1)
@@ -50,7 +47,6 @@ matrix_generation(rows, cols)
 A_mat = np.loadtxt('A.txt')
 B_mat = np.loadtxt('B.txt')
 
- 
 # Function calls
 C= matmul (A_mat , B_mat)
 A_mat = np.transpose(A_mat)
@@ -61,7 +57,6 @@ A_mat = add_zeros(A_mat)
 # B_mat= B_reverse(B_mat) # for weight stationaty
 # B_flip= np.flip(B_mat, axis=0)
 """
-
 B_final=add_zeros(B_mat)
 
 # Saving matrices
