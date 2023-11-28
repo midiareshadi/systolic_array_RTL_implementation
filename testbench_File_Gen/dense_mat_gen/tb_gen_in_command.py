@@ -2,12 +2,9 @@ import numpy as np
 
 # Matrix generator function with random elements
 def matrix_generation(rows,cols):
-
     rng = np.random.default_rng()
-
     A = rng.integers(low=1, high=15, size=(rows, cols), dtype=np.uint8, endpoint=False)
     B = rng.integers(low=1, high=15, size=(rows, cols), dtype=np.uint8, endpoint=False)
-
     np.savetxt('A.txt', A, fmt='%d')
     np.savetxt('B.txt', B, fmt='%d')
 
@@ -19,7 +16,6 @@ def add_zeros(A_mat):
     for i in range(n):
         for j in range(m):
             new_matrix[i + j][j] = A_mat[i][j]
-
     return new_matrix
 
 
@@ -30,18 +26,15 @@ def add_zeros_2(in_matrix):
     for i in range(n):
         for j in range(m):
             new_matrix[i][i+j] = in_matrix[i][j]
-
     return new_matrix
 
 
 def B_reverse(B_mat):
    B_rev= reversed_matrix = np.flip(B_mat, axis=1)
-
    return B_rev
 
 def matmul (A , B):
     C = np.dot(A,B)
-
     return C
 
 # Getting the dimension of the systolic array
