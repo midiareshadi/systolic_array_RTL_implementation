@@ -23,7 +23,6 @@ def dense_matrix_gen(m,n):
 	dens_gen_mat= rng.integers(low=1, high=7, size=(m, n), dtype=np.uint8, endpoint=False)
 	return dens_gen_mat
 
-# ---------------------------
 def add_zeros(A_mat):
     n = A_mat.shape[0]
     m = A_mat.shape[1]
@@ -34,7 +33,6 @@ def add_zeros(A_mat):
 
     return new_matrix
 
-# ---------------------------
 def add_zeros_2(in_matrix):
     n = in_matrix.shape[0]
     m = in_matrix.shape[1]
@@ -45,45 +43,34 @@ def add_zeros_2(in_matrix):
 
     return new_matrix
 
-# ---------------------------
-
 def B_reverse(B_mat):
    B_rev= reversed_matrix = np.flip(B_mat, axis=1)
 
    return B_rev
 
-# ---------------------------
 def matmul (A , B):
     C = np.dot(A,B)
 
     return C
-# ---------------------------
-
-# =================================================
 
 # Generating matrices
-#matrix_generation()
 A=sparse_matrix_gen(1,cols,density,12)
 B=sparse_matrix_gen(rows,1,density,14)
 np.savetxt('A.txt', A, fmt='%d')
 np.savetxt('B.txt', B, fmt='%d')
 
+"""
 # Loading matrices
 #A_mat = np.loadtxt('A.txt')
 #B_mat = np.loadtxt('B.txt')
+"""
 
-# ---------------------------
 # Function calls
 C= matmul (A , B)
-
 A_mat = np.flip(A, axis=0)
 B_mat = B
-
-# ----------------------------
 
 # Saving matrices
 np.savetxt('A_TB.txt', A_mat, fmt='%d')
 np.savetxt('B_TB.txt', B_mat, fmt='%d')
 np.savetxt('C_matmul.txt', C, fmt='%d')
-
-
