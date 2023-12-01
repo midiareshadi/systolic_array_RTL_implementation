@@ -53,6 +53,12 @@ def matmul (A , B):
 
     return C
 
+rows, cols, density = input("Enter the systolic array dimensions and density separated by a comma: ").split(",")
+rows = int(rows)
+cols = int(cols)
+density= float (density)
+print ('Genetares input matrices for a', rows, 'by', cols, 'systolic array with density = ', density)
+
 # Generating matrices
 A=sparse_matrix_gen(rows,cols,density,12)
 B=sparse_matrix_gen(rows,cols,density,14)
@@ -68,14 +74,9 @@ print ("*************************")
 np.savetxt('A.txt', A, fmt='%d')
 np.savetxt('B.txt', B, fmt='%d')
 
-
 # Loading matrices
 A_mat = np.loadtxt('A.txt')
 B_mat = np.loadtxt('B.txt')
-# A_mat = A
-# B_mat = B
-
-
 
 # Function calls
 C= matmul (A , B)
