@@ -1,13 +1,14 @@
 import numpy as np
 import os
+import sys
 from scipy.sparse import random
 from scipy import stats
 from scipy import sparse
 from scipy.sparse import csr_matrix
 from numpy.random import default_rng
 
-rows = 400
-cols = 400
+rows = 4
+cols = 4
 density=0.8
 
 def sparse_matrix_gen(m,n, density,seed):
@@ -16,7 +17,6 @@ def sparse_matrix_gen(m,n, density,seed):
 	sparse_gen_mat = sparse.random(m, n, density=density, format='csr', data_rvs=data_rvs)
 	sparse_gen_mat=sparse_gen_mat.toarray()
 	return sparse_gen_mat
-	
 	
 def dense_matrix_gen(m,n):
 	rng = np.random.default_rng()
@@ -54,8 +54,19 @@ def matmul (A , B):
     return C
 
 # Generating matrices
-A=sparse_matrix_gen(1,cols,density,12)
-B=sparse_matrix_gen(rows,1,density,14)
+A=sparse_matrix_gen(rows,cols,density,12)
+B=sparse_matrix_gen(rows,cols,density,14)
+
+# Printing matrices A and B (For running in playgroung)
+print ("*** matrix A ****")
+# print(A.astype(int))
+np.savetxt(sys.stdout, A, fmt='%d', delimiter=' ')
+print ("*******")
+print ("*** matrix B ****")
+print(B.astype(int))
+print ("*******")
+
+# Store matrices A and B in usual format
 np.savetxt('A.txt', A, fmt='%d')
 np.savetxt('B.txt', B, fmt='%d')
 
@@ -69,6 +80,10 @@ np.savetxt('B.txt', B, fmt='%d')
 C= matmul (A , B)
 A_mat = np.flip(A, axis=0)
 B_mat = B
+
+# Printing matrices A and B (For running in playgroung)
+# print(A_TB.astype(int))
+# print(B_TB.astype(int))
 
 # Saving matrices
 np.savetxt('A_TB.txt', A_mat, fmt='%d')
