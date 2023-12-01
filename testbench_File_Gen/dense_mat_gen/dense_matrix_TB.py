@@ -1,7 +1,7 @@
 import numpy as np
 
 # Matrix generator function with random elements
-def matrix_generation(rows,cols):
+def dense_matrix_generation(rows,cols):
     rng = np.random.default_rng()
     A = rng.integers(low=1, high=15, size=(rows, cols), dtype=np.uint8, endpoint=False)
     B = rng.integers(low=1, high=15, size=(rows, cols), dtype=np.uint8, endpoint=False)
@@ -41,7 +41,7 @@ cols = int(cols)
 print ('Genetares input matrices for a', rows, 'by', cols, 'systolic array')
 
 # Generating matrices
-matrix_generation(rows, cols)
+dense_matrix_generation(rows, cols)
 
 # Loading matrices
 A_mat = np.loadtxt('A.txt')
