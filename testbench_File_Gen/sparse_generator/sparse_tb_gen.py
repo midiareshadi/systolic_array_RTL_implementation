@@ -58,32 +58,36 @@ A=sparse_matrix_gen(rows,cols,density,12)
 B=sparse_matrix_gen(rows,cols,density,14)
 
 # Printing matrices A and B (For running in playgroung)
-print ("*** matrix A ****")
-# print(A.astype(int))
+print ("******** matrix A ********")
 np.savetxt(sys.stdout, A, fmt='%d', delimiter=' ')
-print ("*******")
-print ("*** matrix B ****")
-print(B.astype(int))
-print ("*******")
+print ("******** matrix B *******")
+np.savetxt(sys.stdout, B, fmt='%d', delimiter=' ')
+print ("*************************")
 
 # Store matrices A and B in usual format
 np.savetxt('A.txt', A, fmt='%d')
 np.savetxt('B.txt', B, fmt='%d')
 
-"""
+
 # Loading matrices
-#A_mat = np.loadtxt('A.txt')
-#B_mat = np.loadtxt('B.txt')
-"""
+A_mat = np.loadtxt('A.txt')
+B_mat = np.loadtxt('B.txt')
+# A_mat = A
+# B_mat = B
+
+
 
 # Function calls
 C= matmul (A , B)
 A_mat = np.flip(A, axis=0)
 B_mat = B
 
-# Printing matrices A and B (For running in playgroung)
-# print(A_TB.astype(int))
-# print(B_TB.astype(int))
+# Printing matrices A_TB and B_TB (zero padded for testbench)
+print ("******* matrix A_TB ********")
+np.savetxt(sys.stdout, A_mat, fmt='%d', delimiter=' ')
+print ("******* matrix B_TB ********")
+np.savetxt(sys.stdout, B_mat, fmt='%d', delimiter=' ')
+print ("*************************")
 
 # Saving matrices
 np.savetxt('A_TB.txt', A_mat, fmt='%d')
