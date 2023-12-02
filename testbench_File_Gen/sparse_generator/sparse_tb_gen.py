@@ -1,4 +1,5 @@
 import numpy as np
+import argparse
 import os
 import sys
 from scipy.sparse import random
@@ -7,10 +8,6 @@ from scipy import sparse
 from scipy.sparse import csr_matrix
 from numpy.random import default_rng
 
-rows = 4
-cols = 4
-density=0.8
-
 def sparse_matrix_gen(m,n, density,seed):
 	np.random.seed(seed)
 	data_rvs = lambda n: np.random.randint(low=0, high=8, size=n, dtype=np.uint8)
@@ -18,57 +15,32 @@ def sparse_matrix_gen(m,n, density,seed):
 	sparse_gen_mat=sparse_gen_mat.toarray()
 	return sparse_gen_mat
 	
-def dense_matrix_gen(m,n):
-	rng = np.random.default_rng()
-	dens_gen_mat= rng.integers(low=1, high=7, size=(m, n), dtype=np.uint8, endpoint=False)
-	return dens_gen_mat
-
-def add_zeros(A_mat):
-    n = A_mat.shape[0]
-    m = A_mat.shape[1]
-    new_matrix = np.zeros((n + m - 1, m))
-    for i in range(n):
-        for j in range(m):
-            new_matrix[i + j][j] = A_mat[i][j]
-
-    return new_matrix
-
-def add_zeros_2(in_matrix):
-    n = in_matrix.shape[0]
-    m = in_matrix.shape[1]
-    new_matrix = np.zeros((n, n + m - 1))
-    for i in range(n):
-        for j in range(m):
-            new_matrix[i][i+j] = in_matrix[i][j]
-
-    return new_matrix
-
-def B_reverse(B_mat):
-   B_rev= reversed_matrix = np.flip(B_mat, axis=1)
-
-   return B_rev
-
 def matmul (A , B):
     C = np.dot(A,B)
-
     return C
 
-rows, cols, density = input("Enter the systolic array dimensions and density separated by a comma: ").split(",")
-rows = int(rows)
-cols = int(cols)
-density= float (density)
-print ('Genetares input matrices for a', rows, 'by', cols, 'systolic array with density = ', density)
+# print("enter the input values in\
+#  the command line. For example: \
+#  python3 sparse_tb_gen.py -rows 8 -cols 8 -d 0.7")
+parser = argparse.ArgumentParser(description="entering the input values")
+parser.add_argument("-rows", "--rows_value", type=int, default=4, help="Value for rows")
+parser.add_argument("-cols", "--cols_value", type=int, default=4, help="Value for cols")
+parser.add_argument("-d", "--density", type=float, default=0.5, help="Density value")
 
-# Generating matrices
+args = parser.parse_args()
+rows = args.rows_value
+cols = args.cols_value
+density = args.density
+
+# Generating sparse matrices
 A=sparse_matrix_gen(rows,cols,density,12)
 B=sparse_matrix_gen(rows,cols,density,14)
 
 # Printing matrices A and B (For running in playgroung)
-print ("******** matrix A ********")
+print ("\n****** matrix A ******\n")
 np.savetxt(sys.stdout, A, fmt='%d', delimiter=' ')
-print ("******** matrix B *******")
+print ("\n***** matrix B *****\n")
 np.savetxt(sys.stdout, B, fmt='%d', delimiter=' ')
-print ("*************************")
 
 # Store matrices A and B in usual format
 np.savetxt('A.txt', A, fmt='%d')
@@ -84,11 +56,11 @@ A_mat = np.flip(A, axis=0)
 B_mat = B
 
 # Printing matrices A_TB and B_TB (zero padded for testbench)
-print ("******* matrix A_TB ********")
+print ("\n**** matrix A_TB *****\n")
 np.savetxt(sys.stdout, A_mat, fmt='%d', delimiter=' ')
-print ("******* matrix B_TB ********")
+print ("\n**** matrix B_TB *****\n")
 np.savetxt(sys.stdout, B_mat, fmt='%d', delimiter=' ')
-print ("*************************")
+print ("\n**********************\n")
 
 # Saving matrices
 np.savetxt('A_TB.txt', A_mat, fmt='%d')
