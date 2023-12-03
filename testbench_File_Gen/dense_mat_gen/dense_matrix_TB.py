@@ -1,4 +1,5 @@
 import numpy as np
+import json 
 
 # Matrix generator function with random elements
 def dense_matrix_generation(rows,cols):
@@ -17,15 +18,6 @@ def add_zeros(A_mat):
             new_matrix[i + j][j] = A_mat[i][j]
     return new_matrix
 
-def add_zeros_2(in_matrix):
-    n = in_matrix.shape[0]
-    m = in_matrix.shape[1]
-    new_matrix = np.zeros((n, n + m - 1))
-    for i in range(n):
-        for j in range(m):
-            new_matrix[i][i+j] = in_matrix[i][j]
-    return new_matrix
-
 def B_reverse(B_mat):
    B_rev= reversed_matrix = np.flip(B_mat, axis=1)
    return B_rev
@@ -34,11 +26,18 @@ def matmul (A , B):
     C = np.dot(A,B)
     return C
 
-# Getting the dimension of the systolic array
-rows, cols = input("Enter the systolic array dimensions separated by a comma: ").split(",")
+#Opening json file:
+with open('input_values.json', 'r') as f:
+    data = json.load(f)
+
+# Reading input values
+rows = data['rows']
+cols = data['columns']
+
 rows = int(rows)
 cols = int(cols)
 print ('Genetares input matrices for a', rows, 'by', cols, 'systolic array')
+
 
 # Generating matrices
 dense_matrix_generation(rows, cols)
