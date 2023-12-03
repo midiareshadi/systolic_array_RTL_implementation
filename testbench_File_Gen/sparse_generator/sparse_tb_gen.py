@@ -19,8 +19,7 @@ def matmul (A , B):
     C = np.dot(A,B)
     return C
 
-# print("enter the input values in\
-#  the command line. For example: \
+#  The command line template, For example:
 #  python3 sparse_tb_gen.py -rows 8 -cols 8 -d 0.7")
 parser = argparse.ArgumentParser(description="entering the input values")
 parser.add_argument("-rows", "--rows_value", type=int, default=4, help="Value for rows")
