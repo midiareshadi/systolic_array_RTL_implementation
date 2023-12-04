@@ -20,7 +20,7 @@ def matmul (A , B):
     return C
 
 #  The command line template, For example:
-#  python3 sparse_tb_gen.py -rows 8 -cols 8 -d 0.7")
+#  python3 sparse_tb_gen.py -rows 8 -cols 8 -d 0.7
 parser = argparse.ArgumentParser(description="entering the input values")
 parser.add_argument("-rows", "--rows_value", type=int, default=4, help="Value for rows")
 parser.add_argument("-cols", "--cols_value", type=int, default=4, help="Value for cols")
@@ -60,6 +60,7 @@ np.savetxt(sys.stdout, A_mat, fmt='%d', delimiter=' ')
 print ("\n**** matrix B_TB *****\n")
 np.savetxt(sys.stdout, B_mat, fmt='%d', delimiter=' ')
 print ("\n**********************\n")
+
 
 # Saving matrices
 np.savetxt('A_TB.txt', A_mat, fmt='%d')
