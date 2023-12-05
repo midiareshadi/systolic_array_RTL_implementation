@@ -2,11 +2,13 @@ import numpy as np
 import argparse
 import os
 import sys
+import matplotlib.pyplot as plt
 from scipy.sparse import random
 from scipy import stats
 from scipy import sparse
 from scipy.sparse import csr_matrix
 from numpy.random import default_rng
+
 
 def sparse_matrix_gen(m,n, density,seed):
 	np.random.seed(seed)
@@ -44,6 +46,18 @@ np.savetxt(sys.stdout, B, fmt='%d', delimiter=' ')
 # Store matrices A and B in usual format
 np.savetxt('A.txt', A, fmt='%d')
 np.savetxt('B.txt', B, fmt='%d')
+
+# A and Matrices heatmaps
+plt.spy(A, markersize=0.5)
+plt.savefig('A_heatmap.png', dpi=50)
+plt.close()
+#plt.show()
+plt.spy(B, markersize=0.5)
+plt.savefig('B_heatmap.png', dpi=50)
+plt.close()
+
+# print('....matrix heatmap is saved....')
+plt.close()
 
 # Loading matrices
 A_mat = np.loadtxt('A.txt')
