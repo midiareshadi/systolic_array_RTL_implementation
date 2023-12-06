@@ -26,6 +26,20 @@ def matmul (A , B):
     C = np.dot(A,B)
     return C
 
+#  The command line template, For example:
+#  python3 sparse_tb_gen.py -rows 8 -cols 8
+parser = argparse.ArgumentParser(description="entering the input values")
+parser.add_argument("-rows", "--rows_value", type=int, default=4, help="Value for rows")
+parser.add_argument("-cols", "--cols_value", type=int, default=4, help="Value for cols")
+parser.add_argument("-d", "--density", type=float, default=0.5, help="Density value")
+
+args = parser.parse_args()
+rows = args.rows_value
+cols = args.cols_value
+density = args.density
+
+
+
 #Opening json file:
 with open('input_values.json', 'r') as f:
     data = json.load(f)
