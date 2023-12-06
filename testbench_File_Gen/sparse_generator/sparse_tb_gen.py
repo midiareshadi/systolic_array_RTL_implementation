@@ -22,18 +22,6 @@ def matmul (A , B):
     C = np.dot(A,B)
     return C
 
-#  The command line template, For example:
-#  python3 sparse_tb_gen.py -rows 8 -cols 8 -d 0.7
-# parser = argparse.ArgumentParser(description="entering the input values")
-# parser.add_argument("-rows", "--rows_value", type=int, default=4, help="Value for rows")
-# parser.add_argument("-cols", "--cols_value", type=int, default=4, help="Value for cols")
-# parser.add_argument("-d", "--density", type=float, default=0.5, help="Density value")
-
-# args = parser.parse_args()
-# rows = args.rows_value
-# cols = args.cols_value
-# density = args.density
-
 #Opening json file:
 with open('input_values.json', 'r') as f:
     data = json.load(f)
@@ -47,14 +35,16 @@ HeatmapGen = data ['heatmap_generation']
 rows = int(rows)
 cols = int(cols)
 density = float (density)
-# HeatGen = bool (HeatmapGen)
 
-print ('HeatmapGen is:  ',HeatmapGen)
 
 if HeatmapGen is True:
-	print ('Genetares input matrices for a', rows, 'by', cols, 'systolic array with density = ', density, 'with matrix heatmap generation' )
-else :
-	print ('Genetares input matrices for a', rows, 'by', cols, 'systolic array with density = ', density, ' _without_ matrix heatmap generation' )
+	print ('Genetares input matrices for a', rows, 'by', cols, \
+	'systolic array with density = ', density, 'with matrix heatmap generation' )
+else:
+	print ('Genetares input matrices for a', rows, 'by', cols, \
+	'systolic array with density = ', density, ' _without_ matrix heatmap generation' )
+
+
 
 # Generating sparse matrices
 A=sparse_matrix_gen(rows,cols,density,12)
@@ -70,15 +60,19 @@ np.savetxt(sys.stdout, B, fmt='%d', delimiter=' ')
 np.savetxt('A.txt', A, fmt='%d')
 np.savetxt('B.txt', B, fmt='%d')
 
+if HeatmapGen is True:
+	HeatGen_Func(A)
+	HeatGen_Func(B)
 
-# A and Matrices heatmaps
-plt.spy(A, markersize=0.5)
-plt.savefig('A_heatmap.png', dpi=50)
-plt.close()
-#plt.show()
-plt.spy(B, markersize=0.5)
-plt.savefig('B_heatmap.png', dpi=50)
-plt.close()
+if HeatmapGen is True:
+	# A and Matrices heatmaps
+	plt.spy(A, markersize=0.5)
+	plt.savefig('A_heatmap.png', dpi=50)
+	plt.close()
+	#plt.show()
+	plt.spy(B, markersize=0.5)
+	plt.savefig('B_heatmap.png', dpi=50)
+	plt.close()
 
 # Loading matrices
 A_mat = np.loadtxt('A.txt')
