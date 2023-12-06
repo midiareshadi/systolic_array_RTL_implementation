@@ -42,14 +42,16 @@ with open('input_values.json', 'r') as f:
 rows = data['rows']
 cols = data['columns']
 density = data['density']
-HeatGen = data ['heatmap_generation']
+HeatmapGen = data ['heatmap_generation']
 
 rows = int(rows)
 cols = int(cols)
 density = float (density)
-HeatGen = bool (HeatGen)
+# HeatGen = bool (HeatmapGen)
 
-if HeatGen :
+print ('HeatmapGen is:  ',HeatmapGen)
+
+if HeatmapGen is True:
 	print ('Genetares input matrices for a', rows, 'by', cols, 'systolic array with density = ', density, 'with matrix heatmap generation' )
 else :
 	print ('Genetares input matrices for a', rows, 'by', cols, 'systolic array with density = ', density, ' _without_ matrix heatmap generation' )
