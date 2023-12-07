@@ -1,5 +1,5 @@
 import numpy as np
-import json 
+import argparse
 
 # Matrix generator function with random elements
 def dense_matrix_generation(rows,cols):
@@ -31,22 +31,10 @@ def matmul (A , B):
 parser = argparse.ArgumentParser(description="entering the input values")
 parser.add_argument("-rows", "--rows_value", type=int, default=4, help="Value for rows")
 parser.add_argument("-cols", "--cols_value", type=int, default=4, help="Value for cols")
-parser.add_argument("-d", "--density", type=float, default=0.5, help="Density value")
 
 args = parser.parse_args()
 rows = args.rows_value
 cols = args.cols_value
-density = args.density
-
-
-
-#Opening json file:
-with open('input_values.json', 'r') as f:
-    data = json.load(f)
-
-# Reading input values
-rows = data['rows']
-cols = data['columns']
 
 rows = int(rows)
 cols = int(cols)
