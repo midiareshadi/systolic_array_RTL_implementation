@@ -8,15 +8,14 @@ The directory tree is shown as:
 .
 |-- Accelergy_Configuration
 |   `-- systolic_array_2x2
-|       |-- input
-|       `-- output
-|-- systemc
+|-- systemC_RTL
 |   |-- input_matrices
 |   `-- vcd_file
+|-- testbench_File_Gen
+|   |-- dense_mat_gen
+|   `-- sparse_generator
 `-- verilog
     `-- systolic_array_2x2
-        |-- input_matrices
-        `-- vcd_file
 ```
 
 ### SystemC Description
