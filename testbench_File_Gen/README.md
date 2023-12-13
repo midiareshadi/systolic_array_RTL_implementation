@@ -8,6 +8,11 @@ To generate the [sparse matrix](https://github.com/midiareshadi/systolic_array_R
 
 We can define the density matrix and dimensions of a systolic array in a [JSON file](https://github.com/midiareshadi/systolic_array_RTL_implementation/blob/main/testbench_File_Gen/sparse_generator/input_values.json). Setting "heatmap_generation" to "True" in JSON file will generate the matrix heatmap and saves it as a PNG file.
 
+### Results folder
+Results are stored in three folders. `MatHeatMap`, `Reg_Format`, and `TB_Format`. These folders include:
+`MatHeatMap`: Heapmap files
+`Reg_Format`: Matrix in a regular format
+`TB_Format`: Matrix in testbench format.
 
 ### Dense matrix generator
  In the [dense matrix](https://github.com/midiareshadi/systolic_array_RTL_implementation/tree/main/testbench_File_Gen/dense_mat_gen) generator, the input values are defined in command line parameters. For example:
