@@ -6,7 +6,7 @@ To generate the [sparse matrix](https://github.com/midiareshadi/systolic_array_R
 
   ```python3 sparse_tb_gen```
 
-We can define the density matrix and dimensions of a systolic array in a JSON file. Setting "heatmap_generation" to "True" in JSON file will generate the matrix heatmap and saves it as a PNG file.
+We can define the density matrix and dimensions of a systolic array in a [JSON file](https://github.com/midiareshadi/systolic_array_RTL_implementation/blob/main/testbench_File_Gen/sparse_generator/input_values.json). Setting "heatmap_generation" to "True" in JSON file will generate the matrix heatmap and saves it as a PNG file.
 
   ### Dense matrix generator
 
