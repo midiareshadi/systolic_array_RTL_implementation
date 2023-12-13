@@ -1,3 +1,5 @@
+// File: Systolic_array_tb_2x2.v
+
 `timescale 1ns/1ns
 
 module systolic_array_2x2_tb;
@@ -11,11 +13,10 @@ module systolic_array_2x2_tb;
     reg tb_clk, tb_rst, tb_load, tb_bd_PE_0, tb_bd_PE_1;
     wire [DATA_WIDTH-1:0] tb_GD_0, tb_GD_1, tb_FDo_0, tb_FDo_1;
   
-
     //InFile
     integer A_file,inFromFile_A, B_file, inFromFile_B;      
 
-    // Instantiation
+    // DUT Instantiation
     systolic_array_2x2 sa_inst_2x2 (
         .sa_RD_0(tb_RD_0),
         .sa_RD_1(tb_RD_1),
@@ -47,8 +48,9 @@ module systolic_array_2x2_tb;
 	// clock generation
 	always #10 tb_clk = ~ tb_clk;
 
+	// initializing rst and load 
 	initial begin
-		// initializing rst and load 
+		// First initialization
 		tb_rst=0;
 		tb_load=0;
 		
@@ -63,7 +65,6 @@ module systolic_array_2x2_tb;
 		tb_load=1;
 		#(dim*20); 
 		tb_load=0;
-
 
 	end
     
