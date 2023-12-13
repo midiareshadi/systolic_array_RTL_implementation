@@ -42,8 +42,8 @@ SC_MODULE(fsm_pe) {
         SC_METHOD (prc_state_machine);
         sensitive << p_state << result_ld;
           //mac_calc local function to perform multiply and accumulate        
-/*        SC_METHOD (mac_calc);*/
-/*        sensitive << f_LR << f_FDi << f_RD << f_bd_PE;*/
+/*        SC_METHOD (mac_calc);
+      sensitive << f_LR << f_FDi << f_RD << f_bd_PE; */
         
         SC_METHOD(prc_output_comb);
         sensitive << clk.pos();
