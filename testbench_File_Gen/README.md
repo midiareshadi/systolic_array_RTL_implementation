@@ -10,7 +10,7 @@ We can define the density matrix and dimensions of a systolic array in a [JSON f
 
 
 ### Dense matrix generator
- In the dense matrix generator, the input values are defined in command line parameters. For example:
+ In the [dense matrix](https://github.com/midiareshadi/systolic_array_RTL_implementation/tree/main/testbench_File_Gen/dense_mat_gen) generator, the input values are defined in command line parameters. For example:
 
  ```python3 dense_matrix_TB.py -rows 8 -cols 8```
 
