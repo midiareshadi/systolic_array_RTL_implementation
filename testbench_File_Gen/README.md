@@ -4,10 +4,17 @@ Both the Verilog and SystemC testbenches utilized input files in text (.txt) for
 ### Sparse matrix generator
 To generate the [sparse matrix](https://github.com/midiareshadi/systolic_array_RTL_implementation/tree/main/testbench_File_Gen/sparse_generator) run the following command:
 
-  ```python3 sparse_tb_gen```
+  ```python3 sparse_tb_gen.py```
 
 We can define the density matrix and dimensions of a systolic array in a [JSON file](https://github.com/midiareshadi/systolic_array_RTL_implementation/blob/main/testbench_File_Gen/sparse_generator/input_values.json). Setting "heatmap_generation" to "True" in JSON file will generate the matrix heatmap and saves it as a PNG file.
 
-  ### Dense matrix generator
+
+### Dense matrix generator
+ In the dense matrix generator, the input values are defined in command line parameters. For example:
+
+ ```python3 dense_matrix_TB.py -rows 8 -cols 8```
+
+ generates 8x8 input matrices. 
+
 
   
