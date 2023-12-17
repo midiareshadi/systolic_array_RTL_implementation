@@ -10,25 +10,26 @@ parameter DATA_WIDTH=16,
 		bf_out_period=(15*period),
 		num_of_clk=100;
 
-	reg [DATA_WIDTH-1:0] tb_inA;
-	reg [(2*DATA_WIDTH)-1:0] tb_inB;
-	wire [(2*DATA_WIDTH)-1:0] tb_GD0, tb_GD1, tb_GD2, tb_GD3;
 	
-	reg tb_clk, tb_rst, tb_result_ld, tb_buf_read;
+	wire [(2*DATA_WIDTH)-1:0] 	tb_RD0, tb_RD1, tb_RD2, tb_RD3,
+								tb_GD0, tb_GD1, tb_GD2, tb_GD3;
+
+	wire [DATA_WIDTH-1:0] tb_FDi0, tb_FDi4, tb_FDi8, tb_FDi12;
+	
+	reg tb_clk, tb_rst, tb_result_ld;
 	
 	integer inFromFile_A,inFromFile_B, A_file,B_file;
 	
-	systolic_array_chip_4x4 sys_chip_inst(
+	systolic_array_chip_4x4 systolic_array_4x4(
 		.inA(tb_inA),
 		.inB(tb_inB),
 		.clk(tb_clk),
-		.buf_read(tb_buf_read),
 		.rst(tb_rst),
 		.result_ld(tb_result_ld),
-		.GD0(tb_GD0),
-		.GD1(tb_GD1),
-		.GD2(tb_GD2),
-		.GD3(tb_GD3)
+		.sa_GD0(tb_GD0),
+		.sa_GD1(tb_GD1),
+		.sa_GD2(tb_GD2),
+		.sa_GD3(tb_GD3)
 	);
 	
 // Reading B File
@@ -96,7 +97,7 @@ initial begin // result_ld
 end
 	
 initial begin
-	$dumpfile("wave_new_v0.3.vcd");
+	$dumpfile("VCD_wave.vcd");
 	$dumpvars; //(0, sys_array_tb);
 end
 			      
