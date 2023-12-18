@@ -1,4 +1,0 @@
-rm -f a.out
-rm -f *.vcd
-iverilog *.v
-./a.out 
