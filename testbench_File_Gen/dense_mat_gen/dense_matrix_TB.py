@@ -25,9 +25,11 @@ def B_reverse(B_mat):
 def matmul (A , B):
     C = np.dot(A,B)
     return C
-
-#  The command line template, For example:
-#  python3 dense_matrix_TB.py -rows 8 -cols 8
+    
+"""
+The command line template, For example:
+python3 dense_matrix_TB.py -rows 8 -cols 8
+"""
 parser = argparse.ArgumentParser(description="entering the input values")
 parser.add_argument("-rows", "--rows_value", type=int, default=4, help="Value for rows")
 parser.add_argument("-cols", "--cols_value", type=int, default=4, help="Value for cols")
@@ -39,7 +41,6 @@ cols = args.cols_value
 rows = int(rows)
 cols = int(cols)
 print ('Genetares input matrices for a', rows, 'by', cols, 'systolic array')
-
 
 # Generating matrices
 dense_matrix_generation(rows, cols)
